@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/task_card"
         android:layout_width="match_parent"
@@ -11,39 +12,57 @@
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+       <LinearLayout
+           android:layout_height="wrap_content"
+           android:layout_width="match_parent"
+           android:orientation="horizontal"
+           android:padding="10dp">
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/task_name"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/cairobold"
                 android:layout_height="wrap_content"
                 android:text="Task name"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
             <TextView
                 android:id="@+id/task_date"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/cairoregular"
                 android:layout_height="wrap_content"
                 android:text="Task date"
                 android:textSize="14sp" />
-
-            <Button
-                android:id="@+id/done_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Done" />
-
-            <Button
-                android:id="@+id/delete_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete" />
-
         </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:gravity="center"
+               android:layout_gravity="center"
+               android:layout_weight="2">
+               <TextView
+                   android:id="@+id/done_button"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/cairoregular"
+                   android:text="Done" />
+               <Space
+                   android:layout_width="10dp"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:id="@+id/delete_button"
+                   android:fontFamily="@font/cairoregular"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Delete" />
+           </LinearLayout>
+       </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

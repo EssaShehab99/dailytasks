@@ -3,6 +3,8 @@ package com.example.dailytasks.models;
 
 import android.annotation.SuppressLint;
 
+import androidx.annotation.NonNull;
+
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
@@ -19,6 +21,7 @@ public class TaskModel {
    public boolean status;
 
     public TaskModel(String id, String name, Date date, boolean status) {
+        this.id = id;
         this.name = name;
         this.status = status;
         this.date = date;
@@ -43,5 +46,14 @@ public class TaskModel {
             put("status", status);
         }};
     }
-
+    @NonNull
+    @Override
+    public String toString() {
+        return "TaskModel{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                ", status=" + status +
+                '}';
+    }
 }
