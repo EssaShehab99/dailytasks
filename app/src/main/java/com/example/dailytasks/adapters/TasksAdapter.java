@@ -33,6 +33,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.MyViewHolder
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private final TextView taskName;
         private TaskModel taskModel;
+        private final TextView startDate;
         private final TextView taskDate;
         private final TextView deleteButton;
         private final TextView doneButton;
@@ -40,6 +41,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.MyViewHolder
         public MyViewHolder(View itemView) {
             super(itemView);
             taskName = itemView.findViewById(R.id.task_name);
+            startDate = itemView.findViewById(R.id.start_task_date);
             taskDate = itemView.findViewById(R.id.task_date);
             deleteButton = itemView.findViewById(R.id.delete_button);
             doneButton = itemView.findViewById(R.id.done_button);
@@ -49,6 +51,10 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.MyViewHolder
             taskName.setText(value);
         }
 
+        void setStartDate(Date value) {
+            @SuppressLint("SimpleDateFormat") DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            startDate.setText(formatter.format(value));
+        }
         void setDate(Date value) {
             @SuppressLint("SimpleDateFormat") DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             taskDate.setText(formatter.format(value));
@@ -81,6 +87,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.MyViewHolder
         TaskModel taskModel = taskModelList.get(position);
         holder.setName(taskModel.name);
         holder.setDate(taskModel.date);
+        holder.setStartDate(taskModel.startDate);
         holder.setTaskModel(taskModel);
         holder.setStatus(taskModel.status);
         holder.deleteButton.setOnClickListener(v -> {

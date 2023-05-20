@@ -35,6 +35,19 @@
             android:paddingHorizontal="10dp"
             android:autofillHints="" />
         <EditText
+            android:id="@+id/start_date_et"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:hint="Start Date"
+            android:drawableEnd="@drawable/ic_date"
+            android:focusable="false"
+            android:background="@drawable/circle_shape"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="10dp"
+            android:autofillHints="" />
+        <EditText
             android:id="@+id/date_et"
             android:layout_width="match_parent"
             android:layout_height="40dp"

@@ -17,13 +17,15 @@ import java.util.Objects;
 public class TaskModel {
     public  String id;
     public String name;
+    public Date startDate;
     public Date date;
    public boolean status;
 
-    public TaskModel(String id, String name, Date date, boolean status) {
+    public TaskModel(String id, String name, Date startDate, Date date, boolean status) {
         this.id = id;
         this.name = name;
         this.status = status;
+        this.startDate = startDate;
         this.date = date;
     }
 
@@ -33,6 +35,7 @@ public class TaskModel {
                 id,
                 Objects.requireNonNull(map.getOrDefault("name", "")).toString(),
                 formatter.parse(Objects.requireNonNull(map.getOrDefault("date", "1")).toString()),
+                formatter.parse(Objects.requireNonNull(map.getOrDefault("startDate", "1")).toString()),
                 (Boolean) Objects.requireNonNull(map.getOrDefault("status", false))
         );
     }
@@ -42,6 +45,7 @@ public class TaskModel {
 
         return new HashMap<String, Object>() {{
             put("name", name);
+            put("startDate", formatter.format(startDate));
             put("date", formatter.format(date));
             put("status", status);
         }};
@@ -53,6 +57,7 @@ public class TaskModel {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", date=" + date +
+                ", startDate=" + startDate +
                 ", status=" + status +
                 '}';
     }
