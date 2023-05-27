@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.dailytasks.R;
 import com.example.dailytasks.models.TaskModel;
 
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,9 +52,8 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.MyViewHolder
             taskName.setText(value);
         }
 
-        void setStartDate(Date value) {
-            @SuppressLint("SimpleDateFormat") DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            startDate.setText(formatter.format(value));
+        void setStartDate(Time value) {
+            startDate.setText(value.toString());
         }
         void setDate(Date value) {
             @SuppressLint("SimpleDateFormat") DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
